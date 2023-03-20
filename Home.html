@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <style>
+        .flexMain {
+      display:flex;
+      align-items: center
+    }
+    .flex1 { flex:1 }
+    .flex2 { flex:2 }
+    .flex3 { flex:3 }
+    
+    button.siteLink {
+      margin-left:-5px;
+      border:none;
+      padding:24px;
+      display:inline-block;
+      min-width:115px;
+    }
+    .whiteLink {
+      background : #fff;
+    }
+    .whiteLink:active {
+      background : #000000;
+      color: #fff;
+    }
+    .blackLink {
+      color: #fff;
+      background:#252525;
+      transition: all 300ms linear;
+    }
+    
+    .blackLink:active {
+      color: #ff0000;
+      background:#fff
+    }
+    #siteBrand {
+      font-family: impact;
+      letter-spacing : -1px;
+      font-size:32px;
+      color:#252525;
+      line-height : 1em;
+    }
+    #menuDrawer {
+      background:#fff;
+      position:fixed;
+      height:100vh;
+      overflow:auto;
+      z-index:12312;
+      top:0;
+      left:0;
+      border-right:1px solid #eaeaea;
+      min-width:25%;
+      max-width:320px;
+      width:100%;
+      transform : translateX(-100%);
+      transition : transform 200ms linear;
+    }
+    #mainNavigation {
+      transition : transform 200ms linear;
+      background : #fff;
+    }
+    .drawMenu > #menuDrawer {
+      transform : translateX(0%);
+    }
+    .drawMenu > #mainNavigation {
+      transform : translateX(25%);
+    }
+    .fa-times {
+      cursor : pointer
+    }
+    a.nav-menu-item:hover {
+      margin-left:2px;
+      border-left:10px solid black;
+    }
+    a.nav-menu-item{
+      transition:border 200ms linear;
+      text-decoration:none;
+      display:block;
+      padding:18px;
+      padding-left:32px;
+      border-bottom:1px solid #eaeaea;
+      font-weight:bold;
+      color:#343434
+    }
+    select.noStyle {
+      border:none;
+      outline:none
+    }
+    </style>
+    <title>StorE-2026</title>
+    
+</head>
+<body>
+
+<div class="p-3 bg-dark text-white">
+      <div class="flexMain">
+        <div class="flex1">
+    
+        </div>
+        <div class="flex2 text-center">
+          <div><strong>This site design is awesome. Try it</strong></div>
+        </div>
+        <div class="flex1">
+    
+        </div>
+      </div>
+    </div>
+    <div id="menuHolder">
+      <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
+        <div class="flexMain">
+          <div class="flex2">
+            <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()"><i class="fas fa-bars me-2"></i> MENU</button>
+          </div>
+          <div class="flex3 text-center" id="siteBrand">
+            MY AWESOME SITE
+          </div>
+    
+          <div class="flex2 text-end d-block d-md-none">
+            <button class="whiteLink siteLink"><i class="fas fa-search"></i></button>
+          </div>
+    
+          <div class="flex2 text-end d-none d-md-block">
+            <button class="whiteLink siteLink">REGISTER</button>
+            <button class="blackLink siteLink"><a href="login.HTML">Login</a> </button>
+          </div>
+        </div>
+      </div>
+    
+      <div id="menuDrawer">
+        <div class="p-4 border-bottom">
+          <div class='row'>
+            <div class="col">
+              <select class="noStyle">
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="french">French</option>
+                <option value="italian">Italian</option>
+                <option value="hebrew">Arabic</option>
+              </select>
+            </div>
+            <div class="col text-end ">
+              <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a href="#" class="nav-menu-item"><i class="fas fa-home me-3"></i>Home</a>
+          <a href="#" class="nav-menu-item"><i class="fab fa-product-hunt me-3"></i>Products</a>
+          <a href="#" class="nav-menu-item"><i class="fas fa-search me-3"></i>Explore</a>
+          <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
+          <a href="#" class="nav-menu-item"><i class="fas fa-dollar-sign me-3"></i>Pricing</a>
+          <a href="#" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>Blog</a>
+          <a href="#" class="nav-menu-item"><i class="fas fa-building me-3"></i>About Us</a>
+        </div>
+      </div>
+    </div>
+<script>
+	var menuHolder = document.getElementById('menuHolder')
+    var siteBrand = document.getElementById('siteBrand')
+    function menuToggle(){
+      if(menuHolder.className === "drawMenu") menuHolder.className = ""
+      else menuHolder.className = "drawMenu"
+    }
+    if(window.innerWidth < 426) siteBrand.innerHTML = "MAS"
+    window.onresize = function(){
+      if(window.innerWidth < 420) siteBrand.innerHTML = "MAS"
+      else siteBrand.innerHTML = "MY AWESOME WEBSITE"
+    }
+    </script>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://picsum.photos/600/400" alt="Produit" class="img-fluid mb-3">
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-primary">Ajouter au panier</button>
+                        <span class="fs-5">$19.99</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h1>Titre du produit</h1>
+                    <p class="lead">Description courte du produit</p>
+                    <ul>
+                        <li>Caractéristique 1</li>
+                        <li>Caractéristique 2</li>
+                        <li>Caractéristique 3</li>
+                    </ul>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nulla animi architecto laudantium atque autem natus accusamus aliquid fugiat harum sit ipsa illo, repudiandae quibusdam voluptates? Provident ab maxime nam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://picsum.photos/600/400" alt="Produit" class="img-fluid mb-3">
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-primary">Ajouter au panier</button>
+                        <span class="fs-5">$19.99</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h1>Titre du produit</h1>
+                    <p class="lead">Description courte du produit</p>
+                    <ul>
+                        <li>Caractéristique 1</li>
+                        <li>Caractéristique 2</li>
+                        <li>Caractéristique 3</li>
+                    </ul>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nulla animi architecto laudantium atque autem natus accusamus aliquid fugiat harum sit ipsa illo, repudiandae quibusdam voluptates? Provident ab maxime nam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section des produits similaires -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-4">Produits similaires</h2>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="https://picsum.photos/300/200" alt="Produit 1" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">Produit 1</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada volutpat risus, eu laoreet velit bibendum non. Sed sit amet massa sed massa pellentesque consectetur vel vel augue. Vivamus bibendum, lectus quis efficitur sagittis, est lectus vestibulum elit, id convallis nibh elit ac sapien.</p>
+                          <p class="card-text"><strong>Prix : </strong>99,99€</p>
+                          <button type="button" class="btn btn-primary">Ajouter au panier</button>
+                        </div>
+                      </div></section>
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Nous contacter</h5>
+                <ul class="list-unstyled">
+                    <li>Adresse : 123 rue des exemples</li>
+                    <li>Téléphone : 01 23 45 67 89</li>
+                    <li>Email : contact@monsite.com</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h5>Liens utiles</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Conditions générales de vente</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="contact.html">Nous contacter</a></li>
+                    </ul>
+                    </div>
+                    <div class="col-md-3">
+                    <h5>Nous suivre</h5>
+                    <ul class="list-unstyled">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                    </ul>
+                    </div>
+                    <div class="col-md-3">
+                    <h5>Inscription à la newsletter</h5>
+                    <p>Abonnez-vous à notre newsletter pour recevoir les dernières offres et actualités</p>
+                    <form>
+                    <div class="form-group">
+                    <label for="newsletter-email">Adresse email</label>
+                    <input type="email" class="form-control" id="newsletter-email" placeholder="Entrez votre email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">S'abonner</button>
+                    </form>
+                    </div>
+                    </div>
+                    <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                    <p>© 2023 MonSite.com. Tous droits réservés.</p>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    </footer>
+                    </body>
+                    </html>
+</body>
+</html>
